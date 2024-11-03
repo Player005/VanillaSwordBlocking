@@ -23,6 +23,7 @@ public final class VanillaBlocking {
 
     public static void addSwordComponents(@NotNull ItemStack itemStack) {
         if (!itemStack.is(ItemTags.SWORDS)) return;
+        if (itemStack.getComponents().has(DataComponents.CONSUMABLE)) return;
         itemStack.applyComponents(
                 DataComponentPatch.builder().set(DataComponents.CONSUMABLE, CONSUMABLE_COMPONENT).build()
         );
