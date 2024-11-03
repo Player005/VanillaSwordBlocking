@@ -21,7 +21,7 @@ java {
 paperweight.reobfArtifactConfiguration = io.papermc.paperweight.userdev.ReobfArtifactConfiguration.MOJANG_PRODUCTION
 
 dependencies {
-    paperweight.paperDevBundle("1.21.1-R0.1-SNAPSHOT")
+    paperweight.paperDevBundle("1.21.3-R0.1-SNAPSHOT")
     // paperweight.foliaDevBundle("1.21.1-R0.1-SNAPSHOT")
     // paperweight.devBundle("com.example.paperfork", "1.21.1-R0.1-SNAPSHOT")
 }
@@ -40,7 +40,7 @@ tasks {
 // Configure plugin.yml generation
 // - name, version, and description are inherited from the Gradle project.
 bukkitPluginYaml {
-    main = "net.player005.vanillablocking.VanillaBlocking"
+    main = "net.player005.vanillablocking.VanillaBlockingPaper"
     load = BukkitPluginYaml.PluginLoadOrder.STARTUP
     authors.add("Player005")
     apiVersion = "1.21"
