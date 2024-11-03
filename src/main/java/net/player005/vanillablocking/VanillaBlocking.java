@@ -13,16 +13,6 @@ public final class VanillaBlocking {
 
     private static final Consumable CONSUMABLE_COMPONENT = Consumable.builder().consumeSeconds(Float.MAX_VALUE).animation(ItemUseAnimation.BLOCK).build();
 
-    private static void addConsumableComponent(@NotNull ItemStack item) {
-        item.applyComponents(
-                DataComponentPatch.builder().set(DataComponents.CONSUMABLE, CONSUMABLE_COMPONENT).build()
-        );
-    }
-
-    private static void removeConsumableComponent(@NotNull ItemStack item) {
-        item.applyComponents(DataComponentPatch.builder().remove(DataComponents.CONSUMABLE).build());
-    }
-
     public static float damageMultiplier(Player player) {
         return (isBlockingSword(player)) ? 0.5f : 1;
     }
@@ -31,9 +21,16 @@ public final class VanillaBlocking {
         return player.getUseItem().is(ItemTags.SWORDS);
     }
 
-    public static void onInventoryUpdate(Player player, @NotNull ItemStack itemStack) {
+    public static void addSwordComponents(@NotNull ItemStack itemStack) {
         if (!itemStack.is(ItemTags.SWORDS)) return;
-        if (player.getMainHandItem() == itemStack) addConsumableComponent(itemStack);
-        else removeConsumableComponent(itemStack);
+        itemStack.applyComponents(
+                DataComponentPatch.builder().set(DataComponents.CONSUMABLE, CONSUMABLE_COMPONENT).build()
+        );
     }
+
+    public static void removeSwordComponents(@NotNull ItemStack stack) {
+        if (!stack.is(ItemTags.SWORDS)) return;
+        stack.applyComponents(DataComponentPatch.builder().remove(DataComponents.CONSUMABLE).build());
+    }
+
 }
