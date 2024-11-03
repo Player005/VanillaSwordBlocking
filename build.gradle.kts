@@ -7,9 +7,9 @@ plugins {
     id("xyz.jpenilla.resource-factory-bukkit-convention") version "1.2.0" // Generates plugin.yml based on the Gradle config
 }
 
-group = "io.papermc.paperweight"
+group = "net.player005.vanillablocking"
 version = "1.0.1"
-description = "Test plugin for paperweight-userdev"
+description = "Allows blocking your sword to reduce taken damage like in older Minecraft versions"
 
 java {
     // Configure the java toolchain. This allows gradle to auto-provision JDK 21 on systems that only have JDK 11 installed for example.
