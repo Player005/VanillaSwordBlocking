@@ -10,7 +10,7 @@ import org.bukkit.event.inventory.InventoryMoveItemEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
-public class VanilaBlockingPaper extends JavaPlugin implements Listener {
+public class VanillaBlockingPaper extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         System.out.println("HI!");
