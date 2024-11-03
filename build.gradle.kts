@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "io.papermc.paperweight"
-version = "1.0.0"
+version = "1.0.1"
 description = "Test plugin for paperweight-userdev"
 
 java {
@@ -34,6 +34,9 @@ tasks {
     }
     javadoc {
         options.encoding = Charsets.UTF_8.name() // We want UTF-8 for everything
+    }
+    runServer {
+//        minecraftVersion("24w44a")
     }
 }
 
