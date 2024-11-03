@@ -8,6 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -53,6 +54,11 @@ public class VanillaBlockingPaper extends JavaPlugin implements Listener {
     // When player leaves, remove blockable components from swords
     @EventHandler
     public void onDisconnect(@NotNull PlayerQuitEvent event) {
+        updateAllItems(event.getPlayer().getInventory(), false);
+    }
+
+    @EventHandler
+    public void onKick(@NotNull PlayerKickEvent event) {
         updateAllItems(event.getPlayer().getInventory(), false);
     }
 
