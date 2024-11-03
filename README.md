@@ -12,9 +12,9 @@ The best part about it: It's **server-only**, so Players don't even need to inst
   
 <summary>How it works</summary>
 
-  Essentialy, this plugin uses the recently added component called "consumable", to make Minecraft think you can eat swords!
-  
-  This is used to enable an animation called "block", so it looks like you're blocking.
-  
-  Then, the plugin prevents you from actually eating your sword, and instead reduces damage when it detects you are blocking ("eating", from minecraft's perspective) your sword.
+> Essentialy, this plugin uses the recently added component called "consumable", to make Minecraft think you can eat swords!
+> 
+> This is used to enable an animation called "block", so it looks like you're blocking.
+> 
+> Then, the plugin prevents you from actually eating your sword, and instead reduces damage when it detects you are blocking ("eating", from minecraft's perspective) your sword.
 </details>
