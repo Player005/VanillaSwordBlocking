@@ -7,3 +7,14 @@ The best part about it: It's **server-only**, so Players don't even need to inst
 
 > [!IMPORTANT]
 > While this mod can be installed on any server version 1.21.2 and later, the blocking will only be displayed correctly by clients in version 24w44a (1.21.4) and later.
+
+<details>
+  
+<summary>How it works</summary>
+
+  Essentialy, this plugin uses the recently added component called "consumable", to make Minecraft think you can eat swords!
+  
+  This is used to enable an animation called "block", so it looks like you're blocking.
+  
+  Then, the plugin prevents you from actually eating your sword, and instead reduces damage when it detects you are blocking ("eating", from minecraft's perspective) your sword.
+</details>
