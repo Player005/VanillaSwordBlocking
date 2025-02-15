@@ -47,4 +47,6 @@ bukkitPluginYaml {
     load = BukkitPluginYaml.PluginLoadOrder.STARTUP
     authors.add("Player005")
     apiVersion = "1.21"
+    description = properties["description"] as String
+    foliaSupported = true
 }
