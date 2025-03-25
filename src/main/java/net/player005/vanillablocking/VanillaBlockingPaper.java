@@ -46,7 +46,7 @@ public class VanillaBlockingPaper extends JavaPlugin implements Listener {
     }
 
     // When player joins, make all their swords blockable
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     public void onJoin(@NotNull PlayerJoinEvent event) {
         updateAllItems(event.getPlayer().getInventory(), true);
     }
@@ -54,12 +54,16 @@ public class VanillaBlockingPaper extends JavaPlugin implements Listener {
     // When player leaves, remove blockable components from swords
     @EventHandler
     public void onDisconnect(@NotNull PlayerQuitEvent event) {
-        updateAllItems(event.getPlayer().getInventory(), false);
+        try {
+            updateAllItems(event.getPlayer().getInventory(), false);
+        } catch (Exception ignored) {}
     }
 
     @EventHandler
     public void onKick(@NotNull PlayerKickEvent event) {
-        updateAllItems(event.getPlayer().getInventory(), false);
+        try {
+            updateAllItems(event.getPlayer().getInventory(), false);
+        } catch (Exception ignored) {}
     }
 
     // reduce damage by 50% when sword is blocked
