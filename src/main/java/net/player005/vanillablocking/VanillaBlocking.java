@@ -8,7 +8,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUseAnimation;
 import net.minecraft.world.item.component.Consumable;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 public final class VanillaBlocking {
 
@@ -22,8 +21,7 @@ public final class VanillaBlocking {
         return player.getUseItem().is(ItemTags.SWORDS);
     }
 
-    public static void addSwordComponents(@Nullable ItemStack itemStack) {
-        if (itemStack == null) return;
+    public static void addSwordComponents(@NotNull ItemStack itemStack) {
         if (!itemStack.is(ItemTags.SWORDS)) return;
         if (itemStack.getComponents().has(DataComponents.CONSUMABLE)) return;
         itemStack.applyComponents(

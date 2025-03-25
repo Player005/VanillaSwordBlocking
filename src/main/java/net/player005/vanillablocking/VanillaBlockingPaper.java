@@ -6,7 +6,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
-import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
@@ -36,13 +36,17 @@ public class VanillaBlockingPaper extends JavaPlugin implements Listener {
         }
     }
 
-    // when items transferred to player inventory, make swords blockable
-    // when items transferred to different inventory, remove component
+    // reduce damage by 50% when sword is blocked
     @EventHandler
-    public void onInventoryUpdate(@NotNull InventoryClickEvent event) {
-        if (event.getClickedInventory() == null) return;
-        boolean isPlayerInventory = event.getClickedInventory().getHolder() instanceof Player;
-        updateAllItems(event.getClickedInventory(), isPlayerInventory);
+    public void onDamagePlayer(@NotNull EntityDamageEvent event) {
+        if (event.getEntity() instanceof Player player) {
+            event.setDamage(event.getDamage() * VanillaBlocking.damageMultiplier(((CraftPlayer) player).getHandle()));
+        }
+    }
+
+    @EventHandler
+    public void onItemChangeEvent(@NotNull PlayerItemHeldEvent event) {
+        updateAllItems(event.getPlayer().getInventory(), true);
     }
 
     // When player joins, make all their swords blockable
@@ -66,11 +70,4 @@ public class VanillaBlockingPaper extends JavaPlugin implements Listener {
         } catch (Exception ignored) {}
     }
 
-    // reduce damage by 50% when sword is blocked
-    @EventHandler
-    public void onDamagePlayer(@NotNull EntityDamageEvent event) {
-        if (event.getEntity() instanceof Player player) {
-            event.setDamage(event.getDamage() * VanillaBlocking.damageMultiplier(((CraftPlayer) player).getHandle()));
-        }
-    }
 }
