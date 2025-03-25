@@ -1,8 +1,9 @@
+import io.papermc.paperweight.userdev.ReobfArtifactConfiguration
 import xyz.jpenilla.resourcefactory.bukkit.BukkitPluginYaml
 
 plugins {
     `java-library`
-    id("io.papermc.paperweight.userdev") version "1.7.3"
+    id("io.papermc.paperweight.userdev") version "2.0.0-beta.16"
     id("xyz.jpenilla.run-paper") version "2.3.1" // Adds runServer and runMojangMappedServer tasks for testing
     id("xyz.jpenilla.resource-factory-bukkit-convention") version "1.2.0" // Generates plugin.yml based on the Gradle config
 }
@@ -18,12 +19,10 @@ java {
 
 // 1)
 // For >=1.20.5 when you don't care about supporting spigot
-paperweight.reobfArtifactConfiguration = io.papermc.paperweight.userdev.ReobfArtifactConfiguration.MOJANG_PRODUCTION
+paperweight.reobfArtifactConfiguration = ReobfArtifactConfiguration.MOJANG_PRODUCTION
 
 dependencies {
-    paperweight.paperDevBundle("1.21.3-R0.1-SNAPSHOT")
-    // paperweight.foliaDevBundle("1.21.1-R0.1-SNAPSHOT")
-    // paperweight.devBundle("com.example.paperfork", "1.21.1-R0.1-SNAPSHOT")
+    paperweight.paperDevBundle("1.21.4-R0.1-SNAPSHOT")
 }
 
 tasks {
@@ -34,9 +33,6 @@ tasks {
     }
     javadoc {
         options.encoding = Charsets.UTF_8.name() // We want UTF-8 for everything
-    }
-    runServer {
-//        minecraftVersion("24w44a")
     }
 }
 
